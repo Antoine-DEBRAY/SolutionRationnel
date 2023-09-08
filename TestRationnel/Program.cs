@@ -78,6 +78,11 @@ namespace TestRationnel
                 }
                 Console.WriteLine();
 
+                // Test de la méthode processusRationnel
+                Console.WriteLine("*** TEST DE LA METHODE PROCESSUSRATIONNEL ***");
+                occurence.processRationnel(Rationnel.Rationnel.methode, tableau);
+                Console.WriteLine();
+
                 // Test de la construction d'un objet Rationnel avec un dénominateur nul
                 Rationnel.Rationnel nulRationnel = new Rationnel.Rationnel(8, 0);
             }
