@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExceptionsRationnel.cs" />
     <Compile Include="MathUtil.cs" />
     <Compile Include="Rationnel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

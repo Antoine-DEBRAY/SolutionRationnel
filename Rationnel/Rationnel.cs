@@ -17,7 +17,7 @@ namespace Rationnel
         {
             if (d == 0)
             {
-                throw new DivideByZeroException("Le dénominateur ne peut pas être nul");
+                throw new ExceptionsRationnel();
             }
             else
             {

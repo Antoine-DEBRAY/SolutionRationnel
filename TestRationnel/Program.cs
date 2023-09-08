@@ -54,6 +54,16 @@ namespace TestRationnel
                 bool egalite = identique1.Equals(identique2);
                 Console.WriteLine("L'égalité entre " + identique1 + " et " + identique2 + " est " + egalite + "\n");
 
+                // Test de la surcharge de l'opérateur '=='
+                Console.WriteLine("*** TEST DE LA SURCHARGE DE L'OPERATEUR == ***");
+                bool egalite2 = (identique1 == identique2);
+                Console.WriteLine("L'égalité entre " + identique1 + " et " + identique2 + " est " + egalite2 + "\n");
+
+                // Test de la surcharge de l'opérateur '!='
+                Console.WriteLine("*** TEST DE LA SURCHARGE DE L'OPERATEUR != ***");
+                bool difference = (identique1 != identique2);
+                Console.WriteLine("La différence entre " + identique1 + " et " + identique2 + " est " + difference + "\n");
+
                 // Test de la construction d'un objet Rationnel avec un dénominateur nul
                 Rationnel.Rationnel nulRationnel = new Rationnel.Rationnel(8, 0);
             }
