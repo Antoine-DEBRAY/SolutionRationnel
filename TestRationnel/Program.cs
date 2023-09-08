@@ -37,6 +37,11 @@ namespace TestRationnel
                 Rationnel.Rationnel impliciteRationnel = monInt;
                 Console.WriteLine("Mon Rationnel ainsi crée correspond à : " + impliciteRationnel + "\n");
 
+                // Test de la surcharge de l'opérateur '+'
+                Console.WriteLine("** TEST DE LA SURCHARGE DE L'ADDITION ***");
+                Rationnel.Rationnel additionRationnel = premierRationnel + secondRationnel;
+                Console.WriteLine("Mon rationnel additionné vaut ainsi : " + additionRationnel + "\n");
+
                 // Test de la construction d'un objet Rationnel avec un dénominateur nul
                 Rationnel.Rationnel nulRationnel = new Rationnel.Rationnel(8, 0);
             }

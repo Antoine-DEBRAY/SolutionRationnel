@@ -43,5 +43,13 @@ namespace Rationnel
             int denominateur = 1;
             return new Rationnel(valeur, denominateur);
         }
+        static public Rationnel operator +(Rationnel premier, Rationnel second)
+        {
+            int denominateurCommun = premier.Denominateur * second.Denominateur;
+            int numerateurPremier = premier.Numerateur * second.Denominateur;
+            int numerateurSecond = second.Numerateur * premier.Denominateur;
+            int numerateur = numerateurPremier + numerateurSecond;
+            return new Rationnel(numerateur, denominateurCommun);
+        }
     }
 }
