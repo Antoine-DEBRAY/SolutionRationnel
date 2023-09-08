@@ -49,7 +49,7 @@ namespace Rationnel
         {
             int numerateur = valeur;
             int denominateur = 1;
-            return new Rationnel(valeur, denominateur);
+            return new Rationnel(numerateur, denominateur);
         }
         static public Rationnel operator +(Rationnel premier, Rationnel second)
         {
