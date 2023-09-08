@@ -28,9 +28,17 @@ namespace Rationnel
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder();
+            if ((this.Numerateur > 0 && this.Denominateur < 0) || (this.Numerateur < 0 && this.Denominateur < 0))
+            {
+                chaine.Append(this.Numerateur * -1);
+                chaine.Append(" / ");
+                chaine.Append(this.Denominateur * -1);
+            }
+            else { 
             chaine.Append(this.Numerateur);
             chaine.Append(" / ");
             chaine.Append(this.Denominateur);
+            }
             return chaine.ToString();
         }
         public static explicit operator double(Rationnel rationnel)
@@ -50,6 +58,13 @@ namespace Rationnel
             int numerateurSecond = second.Numerateur * premier.Denominateur;
             int numerateur = numerateurPremier + numerateurSecond;
             return new Rationnel(numerateur, denominateurCommun);
+        }
+        public static Rationnel Reduit(Rationnel rationnel)
+        {
+            int PGDC = MathUtil.PGCD(rationnel.Numerateur, rationnel.Denominateur);
+            int numerateur = rationnel.Numerateur / PGDC;
+            int denominateur = rationnel.Denominateur / PGDC;
+            return new Rationnel(numerateur, denominateur);
         }
     }
 }

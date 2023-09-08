@@ -13,8 +13,8 @@ namespace TestRationnel
             try
             {
                 // Construction de 2 objets de type Rationnel
-                Rationnel.Rationnel premierRationnel = new Rationnel.Rationnel(5, 8);
-                Rationnel.Rationnel secondRationnel = new Rationnel.Rationnel(2, 4);
+                Rationnel.Rationnel premierRationnel = new Rationnel.Rationnel(5, -8);
+                Rationnel.Rationnel secondRationnel = new Rationnel.Rationnel(-2, -4);
 
                 // Test de la surcharge de la méthode ToString();
                 Console.WriteLine("*** TEST DE LA METHODE ToString() ***");
@@ -41,6 +41,11 @@ namespace TestRationnel
                 Console.WriteLine("*** TEST DE LA SURCHARGE DE L'ADDITION ***");
                 Rationnel.Rationnel additionRationnel = premierRationnel + secondRationnel;
                 Console.WriteLine("Mon rationnel additionné vaut ainsi : " + additionRationnel + "\n");
+
+                // Test de la méthode Réduit
+                Console.WriteLine("*** TEST DE LA METHODE REDUIT ***");
+                Rationnel.Rationnel reduitRationnel = Rationnel.Rationnel.Reduit(additionRationnel);
+                Console.WriteLine("Le rationnel précédemment additioné vaut réduit : " + reduitRationnel + "\n");
 
                 // Test de la construction d'un objet Rationnel avec un dénominateur nul
                 Rationnel.Rationnel nulRationnel = new Rationnel.Rationnel(8, 0);
