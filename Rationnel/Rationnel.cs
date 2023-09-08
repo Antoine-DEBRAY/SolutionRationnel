@@ -100,5 +100,20 @@ namespace Rationnel
         {
             return Convert.ToInt32(Math.Pow(this.Numerateur, this.Denominateur));
         }
+        public int[] chercheOccurence(Rationnel[] objs)
+        {
+            List<int> liste = new List<int>();
+            int position = 0;
+            foreach (Rationnel obj in objs)
+            {
+                if (this.Numerateur * 1.0 / this.Denominateur == obj.Numerateur * 1.0 / obj.Denominateur)
+                {
+                    liste.Add(position);
+                }
+                position++;
+            }
+            int[] tableau = liste.ToArray();
+            return tableau;
+        }
     }
 }
