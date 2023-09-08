@@ -37,5 +37,11 @@ namespace Rationnel
         {
             return (rationnel.Numerateur * 1.0) / (rationnel.Denominateur * 1.0);
         }
+        public static implicit operator Rationnel(int valeur)
+        {
+            int numerateur = valeur;
+            int denominateur = 1;
+            return new Rationnel(valeur, denominateur);
+        }
     }
 }
