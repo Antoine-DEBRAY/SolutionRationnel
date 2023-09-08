@@ -11,8 +11,8 @@ namespace Rationnel
         private int denominateur;
         private int numerateur;
 
-        public int Denominateur { get => denominateur; }
-        public int Numerateur { get => numerateur; }
+        public int Denominateur { get => this.denominateur; }
+        public int Numerateur { get => this.numerateur; }
         public Rationnel(int n, int d)
         {
             if (d == 0)
@@ -28,10 +28,14 @@ namespace Rationnel
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder();
-            chaine.Append(numerateur);
+            chaine.Append(this.Numerateur);
             chaine.Append(" / ");
-            chaine.Append(denominateur);
+            chaine.Append(this.Denominateur);
             return chaine.ToString();
+        }
+        public static explicit operator double(Rationnel rationnel)
+        {
+            return (rationnel.Numerateur * 1.0) / (rationnel.Denominateur * 1.0);
         }
     }
 }
