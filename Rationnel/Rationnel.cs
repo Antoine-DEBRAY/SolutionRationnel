@@ -96,5 +96,9 @@ namespace Rationnel
             }
             return true;
         }
+        public override int GetHashCode()
+        {
+            return Convert.ToInt32(Math.Pow(this.Numerateur, this.Denominateur));
+        }
     }
 }
