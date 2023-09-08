@@ -26,6 +26,17 @@ namespace TestRationnel
                 Console.WriteLine("Le numérateur du premier Rationnel vaut : " + premierRationnel.Numerateur);
                 Console.WriteLine("Le dénominateur du second Rationnel vaut : " + secondRationnel.Denominateur + "\n");
 
+                // Test de la conversion explicite d'un rationnel en double
+                Console.WriteLine("*** TEST CONVERSION EXPLICITE ***");
+                double monDouble = (double)premierRationnel;
+                Console.WriteLine("Mon double ainsi crée vaut : " + monDouble + "\n");
+
+                // Test de la conversion implicite d'un int en rationnel
+                Console.WriteLine("*** TEST CONVERSION IMPLICITE ***");
+                int monInt = 6;
+                Rationnel.Rationnel impliciteRationnel = monInt;
+                Console.WriteLine("Mon Rationnel ainsi crée correspond à : " + impliciteRationnel + "\n");
+
                 // Test de la construction d'un objet Rationnel avec un dénominateur nul
                 Rationnel.Rationnel nulRationnel = new Rationnel.Rationnel(8, 0);
             }
