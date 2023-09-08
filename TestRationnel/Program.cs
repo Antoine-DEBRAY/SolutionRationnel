@@ -64,6 +64,20 @@ namespace TestRationnel
                 bool difference = (identique1 != identique2);
                 Console.WriteLine("La différence entre " + identique1 + " et " + identique2 + " est " + difference + "\n");
 
+                // Test de la méthode chercheOccurence
+                Console.WriteLine("*** TEST DE LA METHODE CHERCHEOCCURENCE ***");
+                Rationnel.Rationnel occurence = new Rationnel.Rationnel(2, 3);
+                Rationnel.Rationnel[] tableau = new Rationnel.Rationnel[] {
+                new Rationnel.Rationnel(1, 3), new Rationnel.Rationnel(2, 3), new Rationnel.Rationnel(4, 5),
+                new Rationnel.Rationnel(4, 6)};
+                int[] positionoccurences = occurence.chercheOccurence(tableau);
+                Console.WriteLine("Le Rationnel " + occurence + " est présent dans le tableau au positions : ");
+                foreach(int position in positionoccurences)
+                {
+                    Console.WriteLine(position);
+                }
+                Console.WriteLine();
+
                 // Test de la construction d'un objet Rationnel avec un dénominateur nul
                 Rationnel.Rationnel nulRationnel = new Rationnel.Rationnel(8, 0);
             }

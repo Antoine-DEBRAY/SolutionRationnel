@@ -13,6 +13,7 @@ namespace Rationnel
 
         public int Denominateur { get => this.denominateur; }
         public int Numerateur { get => this.numerateur; }
+        public delegate void processusRationel(Rationnel obj);
         public Rationnel(int n, int d)
         {
             if (d == 0)
@@ -114,6 +115,19 @@ namespace Rationnel
             }
             int[] tableau = liste.ToArray();
             return tableau;
+        }
+        public void processRationnel(processusRationel process, Rationnel[] objs)
+        {
+            foreach (Rationnel obj in objs)
+            {
+                if (obj.Equals(this)){
+                    process(obj);
+                }
+            }
+        }
+        public static void methode(Rationnel obj)
+        {
+            Console.WriteLine(obj.ToString());
         }
     }
 }
