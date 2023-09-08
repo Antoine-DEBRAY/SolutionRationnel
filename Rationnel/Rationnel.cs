@@ -80,5 +80,21 @@ namespace Rationnel
             }
             return false;
         }
+        static public bool operator ==(Rationnel premier, Rationnel second)
+        {
+            if (premier.Equals(second))
+            {
+                return true;
+            }
+            return false;
+        }
+        static public bool operator !=(Rationnel premier, Rationnel second)
+        {
+            if (premier.Equals(second))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
