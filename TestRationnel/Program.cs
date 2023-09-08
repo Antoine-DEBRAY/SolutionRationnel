@@ -47,6 +47,13 @@ namespace TestRationnel
                 Rationnel.Rationnel reduitRationnel = Rationnel.Rationnel.Reduit(additionRationnel);
                 Console.WriteLine("Le rationnel précédemment additioné vaut réduit : " + reduitRationnel + "\n");
 
+                // Test de la surcharge de la méthode Equals()
+                Console.WriteLine("*** TEST DE LA SURCHARGE DE LA METHODE Equals() ***");
+                Rationnel.Rationnel identique1 = new Rationnel.Rationnel(5, 8);
+                Rationnel.Rationnel identique2 = new Rationnel.Rationnel(5, 8);
+                bool egalite = identique1.Equals(identique2);
+                Console.WriteLine("L'égalité entre " + identique1 + " et " + identique2 + " est " + egalite + "\n");
+
                 // Test de la construction d'un objet Rationnel avec un dénominateur nul
                 Rationnel.Rationnel nulRationnel = new Rationnel.Rationnel(8, 0);
             }

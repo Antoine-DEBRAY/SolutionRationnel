@@ -66,5 +66,19 @@ namespace Rationnel
             int denominateur = rationnel.Denominateur / PGDC;
             return new Rationnel(numerateur, denominateur);
         }
+        public override bool Equals(object rationnel)
+        {
+            if (!(rationnel is Rationnel))
+            {
+                return false;
+            }
+            Rationnel reduit = Reduit(this);
+            Rationnel objReduit = Reduit((Rationnel)rationnel);
+            if (reduit.denominateur == objReduit.denominateur && reduit.numerateur == objReduit.numerateur)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
