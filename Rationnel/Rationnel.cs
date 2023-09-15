@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rationnel
 {
-    public struct Rationnel
+    public struct Rationnel : IComparable
     {
         private int denominateur;
         private int numerateur;
@@ -128,6 +128,19 @@ namespace Rationnel
         public static void methode(Rationnel obj)
         {
             Console.WriteLine(obj.ToString());
+        }
+
+        public int CompareTo(object rationnel)
+        {
+            if (!(rationnel is Rationnel))
+            {
+                return -1;
+            }
+            Rationnel reduit = Reduit(this);
+            Rationnel objReduit = Reduit((Rationnel)rationnel);
+            double doublereduit = (double)reduit;
+            double doubleObjReduit = (double)objReduit;
+            return doublereduit.CompareTo(doubleObjReduit);
         }
     }
 }

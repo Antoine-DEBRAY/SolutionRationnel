@@ -83,6 +83,24 @@ namespace TestRationnel
                 occurence.processRationnel(Rationnel.Rationnel.methode, tableau);
                 Console.WriteLine();
 
+                // Test du tri avec la méthode Sort()
+                Console.WriteLine("*** TEST DE LA METHODE SORT ***");
+                Rationnel.Rationnel[] tableau2 = new Rationnel.Rationnel[] {
+                new Rationnel.Rationnel(4, 3), new Rationnel.Rationnel(2, 3), new Rationnel.Rationnel(4, 5),
+                new Rationnel.Rationnel(4, 2)};
+                Console.WriteLine("Ordre par défaut :");
+                foreach (Rationnel.Rationnel rationnel in tableau2)
+                {
+                    Console.WriteLine(rationnel);
+                }
+                Array.Sort(tableau2);
+                Console.WriteLine("Ordre trié :");
+                foreach (Rationnel.Rationnel rationnel in tableau2)
+                {
+                    Console.WriteLine(rationnel);
+                }
+                Console.WriteLine();
+
                 // Test de la construction d'un objet Rationnel avec un dénominateur nul
                 Rationnel.Rationnel nulRationnel = new Rationnel.Rationnel(8, 0);
             }
