@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rationnel", "Rationnel\Rati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRationnel", "TestRationnel\TestRationnel.csproj", "{FF96BF45-F5DC-4EDD-9531-F97BA0B37C73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestRationnel", "WpfTestRationnel\WpfTestRationnel.csproj", "{4935F562-9780-4270-BE36-5C6F281A3282}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FF96BF45-F5DC-4EDD-9531-F97BA0B37C73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF96BF45-F5DC-4EDD-9531-F97BA0B37C73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF96BF45-F5DC-4EDD-9531-F97BA0B37C73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4935F562-9780-4270-BE36-5C6F281A3282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4935F562-9780-4270-BE36-5C6F281A3282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4935F562-9780-4270-BE36-5C6F281A3282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4935F562-9780-4270-BE36-5C6F281A3282}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
