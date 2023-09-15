@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,20 @@ using System.Threading.Tasks;
 
 namespace Rationnel
 {
-    public struct Rationnel : IComparable
+    public struct Rationnel : IComparable, IEnumerable
     {
         private int denominateur;
         private int numerateur;
 
         public int Denominateur { get => this.denominateur; }
         public int Numerateur { get => this.numerateur; }
+
         public delegate void processusRationel(Rationnel obj);
+        /// <summary>
+        /// Constructeur de la classe Rationnel
+        /// </summary>
+        /// <param name="n">entier numérateur</param>
+        /// <param name="d">entier dénominateur</param>
         public Rationnel(int n, int d)
         {
             if (d == 0)
@@ -24,8 +31,12 @@ namespace Rationnel
             {
                 this.numerateur = n;
                 this.denominateur = d;
-            }  
+            }
         }
+        /// <summary>
+        /// Surcharge de la méthode ToString()
+        /// </summary>
+        /// <returns>Un string représentant le Rationnel</returns>
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder();
@@ -35,10 +46,11 @@ namespace Rationnel
                 chaine.Append(" / ");
                 chaine.Append(this.Denominateur * -1);
             }
-            else { 
-            chaine.Append(this.Numerateur);
-            chaine.Append(" / ");
-            chaine.Append(this.Denominateur);
+            else
+            {
+                chaine.Append(this.Numerateur);
+                chaine.Append(" / ");
+                chaine.Append(this.Denominateur);
             }
             return chaine.ToString();
         }
@@ -118,12 +130,24 @@ namespace Rationnel
         }
         public void processRationnel(processusRationel process, Rationnel[] objs)
         {
-            foreach (Rationnel obj in objs)
+            IEnumerator enumerator = objs.GetEnumerator();
+            enumerator.MoveNext();
+            for (int i = 0; i < objs.Length; i++)
             {
-                if (obj.Equals(this)){
+                if (enumerator.Current.Equals(this))
+                {
+                    process((Rationnel)enumerator.Current);
+                }
+                enumerator.MoveNext();
+            }
+
+           /* foreach (Rationnel obj in objs)
+            {
+                if (obj.Equals(this))
+                {
                     process(obj);
                 }
-            }
+            }*/
         }
         public static void methode(Rationnel obj)
         {
@@ -141,6 +165,11 @@ namespace Rationnel
             double doublereduit = (double)reduit;
             double doubleObjReduit = (double)objReduit;
             return doublereduit.CompareTo(doubleObjReduit);
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
     }
 }
