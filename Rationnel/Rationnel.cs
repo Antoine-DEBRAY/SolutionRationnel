@@ -6,16 +6,31 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Rationnel
-{
+{   /// <summary>
+/// structure représentant un Rationnel
+/// </summary>
     public struct Rationnel : IComparable
     {
         private int denominateur;
+
         private int numerateur;
 
+        /// <summary>
+        /// Accesseur du private denominateur
+        /// </summary>
         public int Denominateur { get => this.denominateur; }
+
+        /// <summary>
+        /// Accesseur du private numerateur
+        /// </summary>
         public int Numerateur { get => this.numerateur; }
 
+        /// <summary>
+        /// Définition de la forme du délégué
+        /// </summary>
+        /// <param name="obj"></param>
         public delegate void processusRationel(Rationnel obj);
+
         /// <summary>
         /// Constructeur de la classe Rationnel
         /// </summary>
@@ -33,6 +48,7 @@ namespace Rationnel
                 this.denominateur = d;
             }
         }
+
         /// <summary>
         /// Surcharge de la méthode ToString()
         /// </summary>
@@ -54,6 +70,7 @@ namespace Rationnel
             }
             return chaine.ToString();
         }
+
         /// <summary>
         /// Conversion explicite d'un Rationnel en double
         /// </summary>
@@ -62,6 +79,7 @@ namespace Rationnel
         {
             return (rationnel.Numerateur * 1.0) / (rationnel.Denominateur * 1.0);
         }
+
         /// <summary>
         /// Conversion implicite d'un int en Rationnel
         /// </summary>
@@ -72,6 +90,7 @@ namespace Rationnel
             int denominateur = 1;
             return new Rationnel(numerateur, denominateur);
         }
+
         /// <summary>
         /// Surcharge de l'opérateur + pour les Rationnel
         /// </summary>
@@ -86,6 +105,7 @@ namespace Rationnel
             int numerateur = numerateurPremier + numerateurSecond;
             return new Rationnel(numerateur, denominateurCommun);
         }
+
         /// <summary>
         /// Méthode permettant de réduire un Rationnel
         /// </summary>
@@ -98,6 +118,7 @@ namespace Rationnel
             int denominateur = rationnel.Denominateur / PGDC;
             return new Rationnel(numerateur, denominateur);
         }
+
         /// <summary>
         /// Méthode permettant la comparaison de deux rationnel
         /// </summary>
@@ -117,6 +138,7 @@ namespace Rationnel
             }
             return false;
         }
+
         /// <summary>
         /// Surcharge de l'operateur ==
         /// </summary>
@@ -131,6 +153,7 @@ namespace Rationnel
             }
             return false;
         }
+
         /// <summary>
         /// Surchage de l'operateur !=
         /// </summary>
@@ -145,6 +168,7 @@ namespace Rationnel
             }
             return true;
         }
+
         /// <summary>
         /// Méthode permettant de définir un hash d'un Rationnel
         /// </summary>
@@ -153,6 +177,7 @@ namespace Rationnel
         {
             return Convert.ToInt32(Math.Pow(this.Numerateur, this.Denominateur));
         }
+
         /// <summary>
         /// Méthode permettant de charge l'occurance d'un objet courant dans un tableau
         /// </summary>
@@ -173,6 +198,7 @@ namespace Rationnel
             int[] tableau = liste.ToArray();
             return tableau;
         }
+
         /// <summary>
         /// Méthode permettant l'utilisation d'un processus délégué sur un tableau
         /// </summary>
@@ -210,6 +236,7 @@ namespace Rationnel
                 }
             }*/
         }
+
         /// <summary>
         /// La méthode déléguée de processusRationnel
         /// </summary>
@@ -218,6 +245,7 @@ namespace Rationnel
         {
             Console.WriteLine(obj.ToString());
         }
+
         /// <summary>
         /// Méthode permettant de comparer deux rationnel, nécessaire à IComparable
         /// </summary>
