@@ -180,7 +180,18 @@ namespace Rationnel
         /// <param name="objs">Le tableau de Rationnel</param>
         public void processRationnel(processusRationel process, Rationnel[] objs)
         {
-            IEnumerator enumerator = objs.GetEnumerator();
+            RationnelCollection rationnelCollection = new RationnelCollection(objs);
+            RationnelEnum rationnelEnum = rationnelCollection.GetEnumerator();
+            rationnelEnum.MoveNext();
+            for (int i = 0; i < objs.Length; i++)
+            {
+                if (rationnelEnum.Current.Equals(this))
+                {
+                    process((Rationnel)rationnelEnum.Current);
+                }
+                rationnelEnum.MoveNext();
+            }
+            /*IEnumerator enumerator = objs.GetEnumerator();
             enumerator.MoveNext();
             for (int i = 0; i < objs.Length; i++)
             {
@@ -189,7 +200,7 @@ namespace Rationnel
                     process((Rationnel)enumerator.Current);
                 }
                 enumerator.MoveNext();
-            }
+            }*/
 
            /* foreach (Rationnel obj in objs)
             {
