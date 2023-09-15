@@ -54,16 +54,30 @@ namespace Rationnel
             }
             return chaine.ToString();
         }
+        /// <summary>
+        /// Conversion explicite d'un Rationnel en double
+        /// </summary>
+        /// <param name="rationnel">Rationnel à convertir</param>
         public static explicit operator double(Rationnel rationnel)
         {
             return (rationnel.Numerateur * 1.0) / (rationnel.Denominateur * 1.0);
         }
+        /// <summary>
+        /// Conversion implicite d'un int en Rationnel
+        /// </summary>
+        /// <param name="valeur">Int à convertir</param>
         public static implicit operator Rationnel(int valeur)
         {
             int numerateur = valeur;
             int denominateur = 1;
             return new Rationnel(numerateur, denominateur);
         }
+        /// <summary>
+        /// Surcharge de l'opérateur + pour les Rationnel
+        /// </summary>
+        /// <param name="premier">Premier Rationnel à Additionner</param>
+        /// <param name="second">Second Rationnel à Additionner</param>
+        /// <returns></returns>
         static public Rationnel operator +(Rationnel premier, Rationnel second)
         {
             int denominateurCommun = premier.Denominateur * second.Denominateur;
@@ -72,6 +86,11 @@ namespace Rationnel
             int numerateur = numerateurPremier + numerateurSecond;
             return new Rationnel(numerateur, denominateurCommun);
         }
+        /// <summary>
+        /// Méthode permettant de réduire un Rationnel
+        /// </summary>
+        /// <param name="rationnel">Le Rationnel à réduire</param>
+        /// <returns>Le Rationnel Réduit</returns>
         public static Rationnel Reduit(Rationnel rationnel)
         {
             int PGDC = MathUtil.PGCD(rationnel.Numerateur, rationnel.Denominateur);
@@ -79,6 +98,11 @@ namespace Rationnel
             int denominateur = rationnel.Denominateur / PGDC;
             return new Rationnel(numerateur, denominateur);
         }
+        /// <summary>
+        /// Méthode permettant la comparaison de deux rationnel
+        /// </summary>
+        /// <param name="rationnel">Le rationnel à comparer avec l'objet courant</param>
+        /// <returns>true or false</returns>
         public override bool Equals(object rationnel)
         {
             if (!(rationnel is Rationnel))
@@ -93,6 +117,12 @@ namespace Rationnel
             }
             return false;
         }
+        /// <summary>
+        /// Surcharge de l'operateur ==
+        /// </summary>
+        /// <param name="premier">Premier rationnel à vérifier</param>
+        /// <param name="second">Second rationnel à vérifier</param>
+        /// <returns>true or false</returns>
         static public bool operator ==(Rationnel premier, Rationnel second)
         {
             if (premier.Equals(second))
@@ -101,6 +131,12 @@ namespace Rationnel
             }
             return false;
         }
+        /// <summary>
+        /// Surchage de l'operateur !=
+        /// </summary>
+        /// <param name="premier">Premier rationnel à vérifier</param>
+        /// <param name="second">Second rationnel à vérifier</param>
+        /// <returns>true or false</returns>
         static public bool operator !=(Rationnel premier, Rationnel second)
         {
             if (premier.Equals(second))
@@ -109,10 +145,19 @@ namespace Rationnel
             }
             return true;
         }
+        /// <summary>
+        /// Méthode permettant de définir un hash d'un Rationnel
+        /// </summary>
+        /// <returns>Le Hash sous forme d'entier</returns>
         public override int GetHashCode()
         {
             return Convert.ToInt32(Math.Pow(this.Numerateur, this.Denominateur));
         }
+        /// <summary>
+        /// Méthode permettant de charge l'occurance d'un objet courant dans un tableau
+        /// </summary>
+        /// <param name="objs">Tableau à chercher</param>
+        /// <returns>Les positions des occurences sous forme de tableau</returns>
         public int[] chercheOccurence(Rationnel[] objs)
         {
             List<int> liste = new List<int>();
@@ -128,6 +173,11 @@ namespace Rationnel
             int[] tableau = liste.ToArray();
             return tableau;
         }
+        /// <summary>
+        /// Méthode permettant l'utilisation d'un processus délégué sur un tableau
+        /// </summary>
+        /// <param name="process">Le processus délégue</param>
+        /// <param name="objs">Le tableau de Rationnel</param>
         public void processRationnel(processusRationel process, Rationnel[] objs)
         {
             IEnumerator enumerator = objs.GetEnumerator();
@@ -149,11 +199,19 @@ namespace Rationnel
                 }
             }*/
         }
+        /// <summary>
+        /// La méthode déléguée de processusRationnel
+        /// </summary>
+        /// <param name="obj">Un rationnel</param>
         public static void methode(Rationnel obj)
         {
             Console.WriteLine(obj.ToString());
         }
-
+        /// <summary>
+        /// Méthode permettant de comparer deux rationnel, nécessaire à IComparable
+        /// </summary>
+        /// <param name="rationnel">Rationnel à comparer avec l'objet courant</param>
+        /// <returns>-1, 0 ou 1</returns>
         public int CompareTo(object rationnel)
         {
             if (!(rationnel is Rationnel))
@@ -166,7 +224,10 @@ namespace Rationnel
             double doubleObjReduit = (double)objReduit;
             return doublereduit.CompareTo(doubleObjReduit);
         }
-
+        /// <summary>
+        /// Méthode nécessaire à l'implémentation de IEnumerable
+        /// </summary>
+        /// <returns>Un Enumerator</returns>
         public IEnumerator GetEnumerator()
         {
             return this.GetEnumerator();
