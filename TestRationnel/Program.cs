@@ -105,6 +105,8 @@ namespace TestRationnel
                 Rationnel.Rationnel nulRationnel = new Rationnel.Rationnel(8, 0);
             }
             catch(Exception e) { Console.WriteLine(e.Message + "\n"); }
+            Console.WriteLine("Appuyez sur une touche pour sortir...");
+            Console.ReadKey();
         }
     }
 }
