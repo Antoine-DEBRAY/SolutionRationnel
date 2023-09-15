@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Rationnel
 {
-    public struct Rationnel : IComparable, IEnumerable
+    public struct Rationnel : IComparable
     {
         private int denominateur;
         private int numerateur;
@@ -180,7 +180,18 @@ namespace Rationnel
         /// <param name="objs">Le tableau de Rationnel</param>
         public void processRationnel(processusRationel process, Rationnel[] objs)
         {
-            IEnumerator enumerator = objs.GetEnumerator();
+            RationnelCollection rationnelCollection = new RationnelCollection(objs);
+            RationnelEnum rationnelEnum = rationnelCollection.GetEnumerator();
+            rationnelEnum.MoveNext();
+            for (int i = 0; i < objs.Length; i++)
+            {
+                if (rationnelEnum.Current.Equals(this))
+                {
+                    process((Rationnel)rationnelEnum.Current);
+                }
+                rationnelEnum.MoveNext();
+            }
+            /*IEnumerator enumerator = objs.GetEnumerator();
             enumerator.MoveNext();
             for (int i = 0; i < objs.Length; i++)
             {
@@ -189,7 +200,7 @@ namespace Rationnel
                     process((Rationnel)enumerator.Current);
                 }
                 enumerator.MoveNext();
-            }
+            }*/
 
            /* foreach (Rationnel obj in objs)
             {
@@ -223,14 +234,6 @@ namespace Rationnel
             double doublereduit = (double)reduit;
             double doubleObjReduit = (double)objReduit;
             return doublereduit.CompareTo(doubleObjReduit);
-        }
-        /// <summary>
-        /// Méthode nécessaire à l'implémentation de IEnumerable
-        /// </summary>
-        /// <returns>Un Enumerator</returns>
-        public IEnumerator GetEnumerator()
-        {
-            return this.GetEnumerator();
         }
     }
 }
