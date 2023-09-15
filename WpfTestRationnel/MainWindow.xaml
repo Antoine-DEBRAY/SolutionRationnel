@@ -9,12 +9,12 @@
     <Grid Margin="0,0,4.2,-2.4">
         <Label Content="Numérateur :" HorizontalAlignment="Left" Height="31" Margin="51,51,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold"/>
         <Label Content="Dénominateur :" HorizontalAlignment="Left" Height="31" Margin="51,107,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="220,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="115"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="220,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="115"/>
+        <TextBox x:Name="TextBoxNumerateur" HorizontalAlignment="Left" Height="31" Margin="220,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="115"/>
+        <TextBox x:Name="TextBoxDenominateur" HorizontalAlignment="Left" Height="31" Margin="220,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="115"/>
         <Label Content="Rationnel :" HorizontalAlignment="Left" Height="31" Margin="426,51,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="546,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="115"/>
-        <Button Content="Rationnel réduit" HorizontalAlignment="Left" Height="31" Margin="58,185,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold"/>
-        <Button Content="Valeur décimale" HorizontalAlignment="Left" Height="31" Margin="244,185,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold"/>
+        <TextBox x:Name="TextBoxRationnel" HorizontalAlignment="Left" Height="31" Margin="546,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="115"/>
+        <Button x:Name="boutonRationnelReduit" Content="Rationnel réduit" HorizontalAlignment="Left" Height="31" Margin="58,185,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold" Click="Button_Click"/>
+        <Button x:Name="BoutonValeurDécimale" Content="Valeur décimale" HorizontalAlignment="Left" Height="31" Margin="244,185,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold"/>
 
     </Grid>
 </Window>
