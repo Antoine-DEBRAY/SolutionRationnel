@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Rationnel
 {
-    public struct Rationnel : IComparable, IEnumerable
+    public struct Rationnel : IComparable
     {
         private int denominateur;
         private int numerateur;
@@ -223,14 +223,6 @@ namespace Rationnel
             double doublereduit = (double)reduit;
             double doubleObjReduit = (double)objReduit;
             return doublereduit.CompareTo(doubleObjReduit);
-        }
-        /// <summary>
-        /// Méthode nécessaire à l'implémentation de IEnumerable
-        /// </summary>
-        /// <returns>Un Enumerator</returns>
-        public IEnumerator GetEnumerator()
-        {
-            return this.GetEnumerator();
         }
     }
 }
